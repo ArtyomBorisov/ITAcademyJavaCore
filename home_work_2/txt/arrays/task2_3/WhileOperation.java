@@ -4,33 +4,36 @@ import static home_work_2.txt.arrays.ArraysUtils.arrayFromConsole;
 
 public class WhileOperation implements IArraysOperation {
 
-    public void showElements() {
+    public String showElements() {
         int[] container = arrayFromConsole();
         int i = 0;
-        System.out.print("Массив: ");
+        String allArray = "Массив: ";
         while (i < container.length) {
-            System.out.print(container[i] + " ");
+            allArray = allArray + container[i] + " ";
             i++;
         }
+        return allArray;
     }
 
-    public void showEverySecondElement() {
+    public String  showEverySecondElement() {
         int[] container = arrayFromConsole();
         int i = 1;
-        System.out.print("Каждый второй элемент массива: ");
+        String secondElements = "Каждый второй элемент массива: ";
         while (i < container.length) {
-            System.out.print(container[i] + " ");
+            secondElements = secondElements + container[i] + " ";
             i += 2;
         }
+        return secondElements;
     }
 
-    public void inverseArray() {
+    public String inverseArray() {
         int[] container = arrayFromConsole();
         int i = container.length - 1;
-        System.out.print("Массив в обратном порядке: ");
+        String inverse = "Массив в обратном порядке: ";
         while (i >= 0) {
-            System.out.print(container[i] + " ");
+            inverse = inverse + container[i] + " ";
             i--;
         }
+        return inverse;
     }
 }

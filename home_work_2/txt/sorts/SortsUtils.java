@@ -35,11 +35,11 @@ public class SortsUtils {
     }
 
     public static void bubbleSort (int[] array) {
-        boolean isSorted = false;
+        boolean isSorted;
         int element;
         System.out.println("Массив до сортировки: " + Arrays.toString(array));
 
-        while (!isSorted) {
+        do {
             isSorted = true;
             for (int i = 0; i < array.length - 1; i++) {
                 if (array[i] > array[i+1]) {
@@ -49,16 +49,16 @@ public class SortsUtils {
                     isSorted = false;
                 }
             }
-        }
+        } while (!isSorted);
 
         System.out.println("Массив после сортировки: " + Arrays.toString(array) + "\n");
     }
 
     public static void shakerSort (int[] array) {
-        boolean isSorted = false;
+        boolean isSorted;
         int element;
         System.out.println("Массив до сортировки: " + Arrays.toString(array));
-        while (!isSorted) {
+        do {
             isSorted = true;
 
             for (int i = 0; i < array.length - 1; i++) {
@@ -78,7 +78,7 @@ public class SortsUtils {
                     isSorted = false;
                 }
             }
-        }
+        } while (!isSorted);
 
         System.out.println("Массив после сортировки: " + Arrays.toString(array) + "\n");
     }

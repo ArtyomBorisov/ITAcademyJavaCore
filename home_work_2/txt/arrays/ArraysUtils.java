@@ -13,13 +13,13 @@ public class ArraysUtils {
         while (true) {
             int num = scan.nextInt();
             if (num == 1) {
-                showElements(container);
+                System.out.println(showElements(container));
                 break;
             } else if (num == 2) {
-                showEverySecondElement(container);
+                System.out.println(showEverySecondElement(container));
                 break;
             } else if (num == 3) {
-                inverseArray(container);
+                System.out.println(inverseArray(container));
                 break;
             } else {
                 System.out.println("Нужно выбрать 1, 2 или 3! Выберите ещё раз:");
@@ -48,27 +48,27 @@ public class ArraysUtils {
         return(container);
     }
 
-    public static void showElements(int[] container) {
-        System.out.print("Массив: ");
+    static String showElements(int[] container) {
+        String allArray = "Массив: ";
         for (int element: container) {
-            System.out.print(element + " ");
+            allArray = allArray + element + " ";
         }
-        System.out.println();
+        return allArray;
     }
 
-    public static void showEverySecondElement(int[] container) {
-        System.out.print("Каждый второй элемент массива: ");
+    static String showEverySecondElement(int[] container) {
+        String secondElements = "Каждый второй элемент массива: ";
         for (int i = 1; i < container.length; i += 2) {
-            System.out.print(container[i] + " ");
+            secondElements = secondElements + container[i] + " ";
         }
-        System.out.println();
+        return secondElements;
     }
 
-    public static void inverseArray(int[] container) {
-        System.out.print("Массив в обратном порядке: ");
+    static String inverseArray(int[] container) {
+        String inverse = "Массив в обратном порядке: ";
         for (int i = container.length - 1; i >= 0; i--) {
-            System.out.print(container[i] + " ");
+            inverse = inverse + container[i] + " ";
         }
-        System.out.println();
+        return inverse;
     }
 }
