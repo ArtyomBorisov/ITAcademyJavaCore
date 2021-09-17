@@ -21,9 +21,9 @@ home_work_2.txt.arrays:
         1) public static int[] arrayFromConsole(): данный метод размер массива и каждый его элемент запрашивает у пользователя через консоль (п.2.1.1);
         2) public static int[] arrayRandom(int size, int maxValueExclusion): данный метод принимает два аргумента.
            Первый (size) указывает размер массива который мы хотим получить. Второй (maxValueExclusion) указывает до какого числа генерировать рандомные числа (п.2.1.2);
-        3) public static void showElements(int[] container): выводит все элементы массива в консоль (п.2.2.1);
-        4) public static void showEverySecondElement(int[] container): выводит каждый второй элемент массива в консоль (п.2.2.2);
-        5) public static void inverseArray(int[] container): выводит все элементы массива в консоль в обратном порядке (п.2.2.3).
+        3) static String showElements(int[] container): выводит все элементы массива в консоль (п.2.2.1);
+        4) static String showEverySecondElement(int[] container): выводит каждый второй элемент массива в консоль (п.2.2.2);
+        5) static String inverseArray(int[] container): выводит все элементы массива в консоль в обратном порядке (п.2.2.3).
 
 home_work_2.txt.arrays.task2_3:
     - DoWhileOperation: использует только цикл do...while;
