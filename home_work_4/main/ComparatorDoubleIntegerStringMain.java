@@ -27,7 +27,5 @@ public class ComparatorDoubleIntegerStringMain {
         System.out.println(container3.toString());
         container3.sort(new ComparatorString());
         System.out.println(container3.toString());
-
     }
-
 }

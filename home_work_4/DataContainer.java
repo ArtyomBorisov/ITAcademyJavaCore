@@ -45,7 +45,7 @@ public class DataContainer<T> {
 
     public boolean delete(T item) {
         for (int i = 0; i < data.length; i++) {
-            if (data[i].equals(item)) {
+            if (data[i] != null && data[i].equals(item)) {
                 return delete(i);
             }
         }
@@ -67,6 +67,9 @@ public class DataContainer<T> {
             } while (!isSorted) ;
     }
 
+    public static void sort (DataContainer container, Comparator comparator) {
+        container.sort(comparator);
+    }
 
     @Override
     public String toString() {
@@ -82,30 +85,3 @@ public class DataContainer<T> {
         return stringBuilder.toString();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
