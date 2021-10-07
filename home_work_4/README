@@ -1,0 +1,16 @@
+home_work_4.comparators:
+    Компараторы из п.9:
+        - ComparatorDouble
+        - ComparatorInteger
+        - ComparatorPersonAge
+        - ComparatorPersonName
+        - ComparatorString\
+
+home_work_4.main:
+    - ComparatorDoubleIntegerStringMain использует компраторы для Double, String, Integer
+    - ComparatorPersonMain использует компараторы для объекта Person
+    - ExampleFromTxtMain решает пример из txt (который перед заданием)
+
+home_work_4:
+    - DataContainer решает п.1-10
+    - Person создан для примера использования компараторов (п. 9)
