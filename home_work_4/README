@@ -10,8 +10,8 @@ home_work_4.main:
     - ComparatorDoubleIntegerStringMain использует компраторы для Double, String, Integer
     - ComparatorPersonMain использует компараторы для объекта Person
     - ExampleFromTxtMain решает пример из txt (который перед заданием)
-    - SortStaticMain использует СТАТИЧЕСКИЙ метод sort из п.12
+    - SortStaticMain использует СТАТИЧЕСКИЙ метод sort из п.11
 
 home_work_4:
-    - DataContainer содержит методы из п.1-10, 12
+    - DataContainer содержит методы из п.1-12
     - Person создан для примера использования компараторов (п. 9)

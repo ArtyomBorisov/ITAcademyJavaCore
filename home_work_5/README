@@ -1,0 +1,9 @@
+home_work_5.comparators:
+    - ComparatorStudentAge - компаратор для сравнения студентов по возрасту
+    - ComparatorStudentMark - компаратор для сравнения студентов по оценке
+    - ComparatorStudentName - компаратор для сравнения студентов по имени
+
+home_work_5:
+    - RandomStudent - класс для генерирования студентов со случайными полями
+    - Student - класс Студент
+    - StudentMain - класс, содержащий точку входа (метод main)

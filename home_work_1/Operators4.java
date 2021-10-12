@@ -14,8 +14,8 @@ public class Operators4 {
 
     public static String sleepIn (boolean weekday , boolean vacation) {
         if (!weekday || vacation) {
-            return("Можно спать дальше");
+            return "Можно спать дальше";
         }
-        return ("Пора идти на работу");
+        return "Пора идти на работу";
     }
 }
