@@ -10,9 +10,22 @@ public class StudentMain {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
         RandomStudent randomStudent = new RandomStudent();
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Как генерируем имена?\n1) рандомные русские символы; " +
+                "\n2) понятные рандомные имена;\n3) понятные рандомные имена из txt файла");
+        int a = scan.nextInt();
+        while (true) {
+            if (a == 1 || a == 2 || a ==3) {
+                break;
+            } else {
+                System.out.println("1, 2 или 3:");
+                a = scan.nextInt();
+            }
+        }
 
         for (int i = 0; i < 10_000; i++) {
-            Student stud = randomStudent.createRandomStudent();
+            Student stud = randomStudent.createRandomStudent(a);
             stud.setNum(i + 1);
             students.add(stud);
         }

@@ -1,20 +1,37 @@
 package home_work_5;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomStudent {
+    private List<String> listFromTxt = new ArrayList<>();
+    private ThreadLocalRandom rnd = ThreadLocalRandom.current();
+
     /**
      * метод для генерирования студента со случайными полями
+     * @param a число, обозначающее выбор способа генерации имени студента:
+     *          1 - случайные русские символы
+     *          2 - случайные понятные имена из массива
+     *          3 - случайные понятные имена из txt файла
      * @return сгенерированного студента
      */
-    public Student createRandomStudent() {
-        ThreadLocalRandom rnd = ThreadLocalRandom.current();
+    public Student createRandomStudent(int a) {
         Student stud = new Student();
         stud.setAge(rnd.nextInt(7, 18));
         stud.setMark(rnd.nextInt(0, 101) / 10.0);
         stud.setOlympiad(rnd.nextBoolean());
-        stud.setName(randomName1());
-//        stud.setName(randomName2());
+
+        switch (a) {
+            case 1: stud.setName(randomName1());
+                    break;
+            case 2: stud.setName(randomName2());
+                    break;
+            case 3: stud.setName(randomName3());
+                    break;
+        }
+
         return stud;
     }
 
@@ -23,7 +40,6 @@ public class RandomStudent {
      * @return строку (имя) длиной от 3 до 7
      */
     public String randomName1() {
-        ThreadLocalRandom rnd = ThreadLocalRandom.current();
         StringBuilder sb = new StringBuilder();
 
         int lengthName = rnd.nextInt(3, 8);
@@ -37,11 +53,55 @@ public class RandomStudent {
     }
 
     /**
+     * метод для наполнения списка имён студентов из текстового файла rusName.txt
+     */
+    private void fillListOfName() {
+        try {
+            Reader input = new FileReader("rusName.txt");
+            StringBuilder sb = new StringBuilder();
+
+            while (true) {
+                int read = input.read();
+
+                if (read == -1) {
+                    break;
+                }
+
+                if (read == 13) { //13 соответствует переводу строки
+                    listFromTxt.add(sb.toString());
+                    sb = new StringBuilder();
+                    continue;
+                }
+
+                if (read == 10) {
+                    continue;
+                }
+
+                sb.append((char) read);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * метод для генерирования рандомного имени из текстового файла rusName.txt
+     * @return строку (имя)
+     */
+    public String randomName3() {
+        if (listFromTxt.isEmpty()) {
+            fillListOfName();
+        }
+        return listFromTxt.get(rnd.nextInt(0, listFromTxt.size()));
+    }
+
+    /**
      * метод для генерирования рандомного имени из массива имён
      * @return строку (имя)
      */
     public String randomName2() {
-        ThreadLocalRandom rnd = ThreadLocalRandom.current();
         String[] names = {"Александр",
                 "Александра",
                 "Алексей",
