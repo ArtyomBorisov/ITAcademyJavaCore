@@ -1,33 +1,25 @@
 package home_work_2.txt.arrays.task2_3;
 
-import static home_work_2.txt.arrays.ArraysUtils.arrayFromConsole;
-
 public class ForOperation implements IArraysOperation {
 
-    public String showElements() {
-        int[] container = arrayFromConsole();
-        String allArray = "Массив: ";
+    public void showElements(int[] container) {
+        System.out.println("Массив: ");
         for (int i = 0; i < container.length; i++) {
-            allArray = allArray + container[i] + " ";
+            System.out.println(container[i]);
         }
-        return allArray;
     }
 
-    public String showEverySecondElement() {
-        int[] container = arrayFromConsole();
-        String secondElements = "Каждый второй элемент массива: ";
+    public void showEverySecondElement(int[] container) {
+        System.out.println("Каждый второй элемент массива: ");
         for (int i = 1; i < container.length; i += 2) {
-            secondElements = secondElements + container[i] + " ";
+            System.out.println(container[i]);
         }
-        return secondElements;
     }
 
-    public String inverseArray() {
-        int[] container = arrayFromConsole();
-        String inverse = "Массив в обратном порядке: ";
+    public void inverseArray(int[] container) {
+        System.out.println("Массив в обратном порядке: ");
         for (int i = container.length - 1; i >= 0; i--) {
-            inverse = inverse + container[i] + " ";
+            System.out.println(container[i]);
         }
-        return inverse;
     }
 }

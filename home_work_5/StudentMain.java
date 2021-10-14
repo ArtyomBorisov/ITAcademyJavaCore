@@ -14,13 +14,20 @@ public class StudentMain {
 
         System.out.println("Как генерируем имена?\n1) рандомные русские символы; " +
                 "\n2) понятные рандомные имена;\n3) понятные рандомные имена из txt файла");
-        int a = scan.nextInt();
+        int a;
+
         while (true) {
-            if (a == 1 || a == 2 || a ==3) {
-                break;
-            } else {
-                System.out.println("1, 2 или 3:");
+            try {
                 a = scan.nextInt();
+                if (a == 1 || a == 2 || a == 3) {
+                    break;
+                } else {
+                    System.out.println("1, 2 или 3:");
+                    a = scan.nextInt();
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("1, 2 или 3:");
+                scan.nextLine();
             }
         }
 
