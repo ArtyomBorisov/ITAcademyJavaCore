@@ -1,4 +1,4 @@
-package home_work_5;
+package home_work_5.dto;
 
 public class Student {
     /**

@@ -3,6 +3,7 @@ package home_work_5;
 import home_work_5.comparators.ComparatorStudentAge;
 import home_work_5.comparators.ComparatorStudentMark;
 import home_work_5.comparators.ComparatorStudentName;
+import home_work_5.dto.Student;
 
 import java.util.*;
 
@@ -60,13 +61,13 @@ public class StudentMain {
         }
 
         for (Integer age: setOfAge) {
-            for (int i = 0; i < studentsNew.size(); i++) {
-                if (age == studentsNew.get(i).getAge()) {
-                    tempList.add(studentsNew.get(i));
+            for (Student st: studentsNew) {
+                if (age == st.getAge()) {
+                    tempList.add(st);
                 }
             }
 
-            Collections.sort(tempList, new ComparatorStudentMark());
+            Collections.sort(tempList, new ComparatorStudentMark().reversed());
 
             System.out.println("Топ 10 студентов по оценке (возраст " + age + ")");
             printListStudentsNotAll(tempList, 10);

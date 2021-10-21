@@ -1,5 +1,7 @@
 package home_work_5;
 
+import home_work_5.dto.Student;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,8 +58,7 @@ public class RandomStudent {
      * метод для наполнения списка имён студентов из текстового файла rusName.txt
      */
     private void fillListOfName() {
-        try {
-            Reader input = new FileReader("rusName.txt");
+        try (Reader input = new FileReader("rusName.txt")) {
             StringBuilder sb = new StringBuilder();
 
             while (true) {
@@ -79,10 +80,8 @@ public class RandomStudent {
 
                 sb.append((char) read);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException("Произошла ошибка чтения файла!", e);
         }
     }
 
