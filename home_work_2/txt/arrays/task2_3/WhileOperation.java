@@ -1,31 +1,44 @@
 package home_work_2.txt.arrays.task2_3;
 
-public class WhileOperation implements IArraysOperation {
+import home_work_2.txt.arrays.task2_3.api.IArraysOperation;
 
-    public void showElements(int[] container) {
+public class WhileOperation implements IArraysOperation {
+    public String showElements(int[] container) {
+        StringBuilder sb = new StringBuilder();
         int i = 0;
-        System.out.println("Массив: ");
+        sb.append("Массив: ");
+
         while (i < container.length) {
-            System.out.println(container[i]);
+            sb.append(container[i]).append(" ");
             i++;
         }
+
+        return sb.toString();
     }
 
-    public void  showEverySecondElement(int[] container) {
+    public String showEverySecondElement(int[] container) {
+        StringBuilder sb = new StringBuilder();
         int i = 1;
-        System.out.println("Каждый второй элемент массива: ");
+        sb.append("Каждый второй элемент массива: ");
+
         while (i < container.length) {
-            System.out.println(container[i]);
+            sb.append(container[i]).append(" ");
             i += 2;
         }
+
+        return sb.toString();
     }
 
-    public void inverseArray(int[] container) {
+    public String inverseArray(int[] container) {
+        StringBuilder sb = new StringBuilder();
         int i = container.length - 1;
-        System.out.println("Массив в обратном порядке: ");
+        sb.append("Массив в обратном порядке: ");
+
         while (i >= 0) {
-            System.out.println(container[i]);
+            sb.append(container[i]).append(" ");
             i--;
         }
+
+        return sb.toString();
     }
 }

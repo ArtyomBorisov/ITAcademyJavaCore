@@ -1,26 +1,24 @@
 package home_work_2.presentation.arrays;
 
-import java.util.Random;
-
 public class PresentationArrays2 {
-    public static void main(String[] args) {
-        int[] numbers = new int[10];
-        Random rand = new Random();
-        System.out.print("Массив случайных чисел: ");
-
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
-            System.out.print(numbers[i] + " ");
+    /**
+     * метод находит максимальный из элементов массива с четными индексами
+     * @param arr массив
+     * @return максимальный элемент массива с четными индексами
+     */
+    public int findMaxNumberOfElementWithEvenIndex(int[] arr){
+        if (arr.length == 0) {
+            return 0;
         }
 
-        int max = 0;
+        int indexOfMaxNumber = 0;
 
-        for (int i = max + 2; i < numbers.length; i += 2) {
-            if (numbers[i] > numbers[max]) {
-                max = i;
+        for (int i = indexOfMaxNumber + 2; i < arr.length; i += 2) {
+            if (arr[i] > arr[indexOfMaxNumber]) {
+                indexOfMaxNumber = i;
             }
         }
-        System.out.print("\nМаксимальный элемент с чётным индексом = " + numbers[max]);
-        System.out.print(" под индексом " + max);
+
+        return arr[indexOfMaxNumber];
     }
 }

@@ -1,33 +1,46 @@
 package home_work_2.presentation.arrays;
 
-import java.util.Random;
-
 public class PresentationArrays4 {
-    public static void main(String[] args) {
-        int[] numbers = new int[10];
-        Random rand = new Random();
-        int sum = 0;
-        System.out.print("Массив случайных чисел: ");
-
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
-            System.out.print(numbers[i] + " ");
+    /**
+     * метод возвращает два наименьших элемента в массиве
+     * @param arr массив
+     * @return массив с двумя наименьшими элементами
+     *         IllegalArgumentException, если передан массив, состоящий из 0 или 1 элемента
+     */
+    public int[] findTwoMinElements(int[] arr) {
+        if (arr.length < 2) {
+            throw new IllegalArgumentException("Передан массив, состоящий из 0 или 1 элемента");
         }
 
-        int min1 = 0;
-        int min2 = 1;
+        int[] result = new int[2];
+        int min1;
+        int min2;
 
-        for (int i = 2; i < numbers.length; i++){
-            if (numbers[i] < numbers[min1]) {
-                if (numbers[min1] < numbers[min2]){
+        if (arr[1] > arr[0]) {
+            min1 = 0;
+            min2 = 1;
+        } else {
+            min1 = 1;
+            min2 = 0;
+        }
+
+
+        for (int i = 2; i < arr.length; i++){
+            if (arr[i] < arr[min1]) {
+
+                if (arr[min1] < arr[min2]){
                     min2 = min1;
                 }
                 min1 = i;
-            } else if (numbers[i] < numbers[min2]) {
+
+            } else if (arr[i] < arr[min2]) {
                 min2 = i;
             }
         }
 
-        System.out.println("\nДва наименьших (минимальных) элемента массива: " + numbers[min1] + " " + numbers[min2]);
+        result[0] = arr[min1];
+        result[1] = arr[min2];
+
+        return result;
     }
 }

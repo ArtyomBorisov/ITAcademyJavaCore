@@ -1,28 +1,23 @@
 package home_work_2.txt.loops;
 
-import java.util.Scanner;
-
 public class Loops13 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Какое число возводим? ");
-        double a = scan.nextDouble();
-        System.out.print("В какую степень возводим? ");
-        int b = scan.nextInt();
-
-        while (true) {
-            if (b > 0) {
-                break;
-            } else {
-                System.out.println("Степень только положительная. Введите ещё раз:");
-                b = scan.nextInt();
-            }
+    /**
+     * метод возводит число в положительную степень
+     * @param a возводимое число (основание)
+     * @param b степень
+     * @return строку типа "2.0 ^ 5 = 32.0"
+     */
+    public String pow(double a, int b) {
+        if (b <= 0) {
+            throw new IllegalArgumentException("Степень строго больше нуля");
         }
 
         double result = a;
+
         for (int i = 1; i < b; i++) {
             result *= a;
         }
-        System.out.printf("Число %.2f в степени %d равно %.2f" , a, b, result);
+
+        return  a + " ^ " + b + " = " + result;
     }
 }

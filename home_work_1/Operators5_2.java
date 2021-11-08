@@ -1,22 +1,19 @@
 package home_work_1;
 
+import home_work_1.api.ICommunicationPrinter;
 import java.util.Objects;
-import java.util.Scanner;
 
-public class Operators5_2 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Ты кто? ");
-        String name = scan.nextLine();
+public class Operators5_2 implements ICommunicationPrinter {
+    @Override
+    public String welcome(String name) {
         String wait = "Я тебя так долго ждал";
 
         if (Objects.equals(name , "Вася")) {
-            System.out.println("Привет!");
-            System.out.println(wait);
+            return "Привет!\n" + wait;
         } else if (Objects.equals(name , "Анастасия")) {
-            System.out.println(wait);
+            return wait;
         } else {
-            System.out.println("Добрый день, а вы кто?");
+            return "Добрый день, а вы кто?";
         }
     }
 }

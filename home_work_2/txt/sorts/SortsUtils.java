@@ -1,43 +1,14 @@
 package home_work_2.txt.sorts;
 
-import java.util.Arrays;
-
-import static home_work_2.txt.arrays.ArraysUtils.arrayFromConsole;
-import static home_work_2.txt.arrays.ArraysUtils.arrayRandom;
-
 public class SortsUtils {
-    public static void main(String[] args) {
-
-        int[] array1 = {1,2,3,4,5,6};
-        int[] array2 = {1,1,1,1};
-        int[] array3 = {9,1,5,99,9,9};
-        int[] array4 = {};
-        int[] array5 = arrayRandom(10, 100);
-        int[] array6 = arrayFromConsole();
-
-
-        System.out.println("Пузырьковая сортировка:");
-        bubbleSort(array1);
-        bubbleSort(array2);
-        bubbleSort(array3);
-        bubbleSort(array4);
-        bubbleSort(array5);
-        bubbleSort(array6);
-
-        /*System.out.println("Шейкерная сортировка:");
-        shakerSort(array1);
-        shakerSort(array2);
-        shakerSort(array3);
-        shakerSort(array4);
-        shakerSort(array5);
-        shakerSort(array6);*/
-
-    }
-
-    public static void bubbleSort (int[] array) {
+    /**
+     * метод для пузырьковой сортировки массива
+     * @param array массив
+     * @return отсортированный массив
+     */
+    public static int[] bubbleSort (int[] array) {
         boolean isSorted;
         int element;
-        System.out.println("Массив до сортировки: " + Arrays.toString(array));
 
         do {
             isSorted = true;
@@ -51,13 +22,18 @@ public class SortsUtils {
             }
         } while (!isSorted);
 
-        System.out.println("Массив после сортировки: " + Arrays.toString(array) + "\n");
+        return array;
     }
 
-    public static void shakerSort (int[] array) {
+    /**
+     * метод для шейкерной сортировки массива
+     * @param array массив
+     * @return отсортированный массив
+     */
+    public static int[] shakerSort (int[] array) {
         boolean isSorted;
         int element;
-        System.out.println("Массив до сортировки: " + Arrays.toString(array));
+
         do {
             isSorted = true;
 
@@ -80,6 +56,6 @@ public class SortsUtils {
             }
         } while (!isSorted);
 
-        System.out.println("Массив после сортировки: " + Arrays.toString(array) + "\n");
+        return array;
     }
 }

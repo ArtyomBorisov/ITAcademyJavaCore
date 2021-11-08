@@ -1,20 +1,23 @@
 package home_work_2.txt.loops;
 
-import java.util.Scanner;
-
 public class Loops14 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        long a = 1;
-        System.out.print("На какое число умножаем единицу до переполнения? ");
-        long b = scan.nextInt();
-        while(true) {
+    /**
+     * метод перемножает число типа long до переполнения
+     * @param num число
+     * @return строку, содержащую значения ДО и ПОСЛЕ переполнения
+     */
+    public String overflow(long num) {
+        long res = 1;
+        int identifier = 1;
+
+        while(identifier != -1) {
             try {
-                a = Math.multiplyExact(a , b);
+                res = Math.multiplyExact(res , num);
             } catch (ArithmeticException e) {
-                System.out.println("Произошло переполнение. Значение до переполнения: " + a + ". Значение после переполнения: " + a * b);
-                return;
+                identifier = -1;
             }
         }
+
+        return "Произошло переполнение. Значение до переполнения: " + res + ". Значение после переполнения: " + res * num;
     }
 }

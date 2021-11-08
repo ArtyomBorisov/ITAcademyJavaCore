@@ -1,28 +1,33 @@
 package home_work_2.presentation.arrays;
 
-import java.util.Random;
-
 public class PresentationArrays3 {
-    public static void main(String[] args) {
-        int[] numbers = new int[10];
-        Random rand = new Random();
-        int sum = 0;
-        System.out.print("Массив случайных чисел: ");
+    /**
+     * метод возвращает строку с элементами, которые меньше среднего арифметического всех чисел массива
+     * @param arr массив
+     * @return строка
+     */
+    public String findElementsLessAverage(int[] arr) {
+        StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
-            sum += numbers[i];
-            System.out.print(numbers[i] + "  ");
+        int sum = 0;
+
+        for (int elem : arr) {
+            sum += elem;
         }
 
-        double average = 1.0 * sum / numbers.length;
-        System.out.println("\nСреднее арифметическое = " + average);
-        System.out.print("Элементы массива, которые меньше среднего арифметического: ");
+        double average = 1.0 * sum / arr.length;
 
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] < average) {
-                System.out.print(numbers[i] + "  ");
+        int identifier = -1;
+        for (int elem : arr) {
+            if (elem < average) {
+                if (identifier != -1) {
+                    sb.append(" ");
+                }
+                sb.append(elem);
+                identifier = 1;
             }
         }
+
+        return sb.toString();
     }
 }

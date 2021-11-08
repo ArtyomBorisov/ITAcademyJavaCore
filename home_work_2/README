@@ -43,7 +43,14 @@ home_work_2.txt.loops:
     - Loops14: Умножать число long a = 1; пока не произойдёт переполнение (п.1.4);
     - Loops15: Вывести таблицу умножения в консоль (п.1.5).
 
+
+home_work_2.txt.loops.api:
+    - IFactorial - интерфейс для п.1.1
+
+home_work_2.txt.loops.runners:
+    - Содержит Main классы для Loops111, Loops112, Loops12, Loops13, Loops14
+
 home_work_2.txt.sorts:
-    В классе SortsUtils помимо main созданы следующие методы (п.4):
-        1) public static void bubbleSort (int[] array): пузырьковая сортировка;
-        2) public static void shakerSort (int[] array): шейкерная сортировка.
+    Класс SortsUtils содержит следующие методы (п.4):
+        1) public static int[] bubbleSort (int[] array): пузырьковая сортировка;
+        2) public static int[] shakerSort (int[] array): шейкерная сортировка.

@@ -1,29 +1,29 @@
 package home_work_2.presentation.arrays;
 
-import java.util.Random;
+import java.util.Arrays;
 
 public class PresentationArrays6 {
-    public static void main(String[] args) {
-        int[] numbers = new int[3];
-        Random rand = new Random();
+    /**
+     * метод суммирует все ЦИФРЫ массива
+     * @param array массив
+     * @return сумма ЦИФР
+     */
+    public int sumDigitOfArray (int[] array) {
         int sum = 0;
-        System.out.print("Массив случайных чисел: ");
+        int[] tempArray = Arrays.copyOf(array, array.length);
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(1000);
-            System.out.print(numbers[i] + " ");
-        }
+        for (int i = 0; i < tempArray.length; i++) {
 
-        for (int i = 0; i < numbers.length; i++) {
-            int num = numbers[i];
-            while (numbers[i] != 0) {
-                int ostatok = numbers[i] % 10;
-                sum += ostatok;
-                numbers[i] /= 10;
+            if (tempArray[i] < 0) {
+                tempArray[i] *= -1;
             }
-            numbers[i] = num;
+
+            while (tempArray[i] != 0) {
+                sum += tempArray[i] % 10;
+                tempArray[i] /= 10;
+            }
         }
 
-        System.out.println("\nСумма чисел = " + sum);
+        return sum;
     }
 }

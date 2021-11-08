@@ -1,41 +1,25 @@
 package home_work_2.presentation.arrays;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class PresentationArrays5 {
-    public static void main(String[] args) {
-        int length = 10; // длина массивов
-        int j = 0; // индекс нового массива
-        int[] numbers = new int[length];
-        int[] newNumbers = new int[length];
-        Random rand = new Random();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Массив случайных чисел: ");
+    /**
+     * метод сжимает массив, удаляя элементы, принадлежащие интервалу [a, b] (включая эти значения);
+     * неудалённые элементы сдвигаются влево, освобождённые элементы в конце массива заполняются нулями
+     * @param arr массив
+     * @param a начало интервала
+     * @param b конец интервала
+     * @return массив
+     */
+    public int[] deleteIntervalFromArray(int[] arr, int a, int b) {
+        int[] resultArr = new int[arr.length];
+        int j = 0;
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
-            System.out.print(numbers[i] + " ");
-        }
-
-        System.out.println("\nЗадайте интервал [a,b]:");
-        System.out.print("a = ");
-        int a = scan.nextInt();
-        System.out.print("b = ");
-        int b = scan.nextInt();
-
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] >= a && numbers[i] <= b) {
-                numbers[i] = 0;
-            } else {
-                newNumbers[j] = numbers[i];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < a || arr[i] > b) {
+                resultArr[j] = arr[i];
                 j++;
             }
         }
 
-        System.out.print("Новый массив без элементов, принадлежащих интервалу [" + a + "," + b + "]:");
-        for (int element: newNumbers) {
-            System.out.print(" " + element);
-        }
+        return resultArr;
     }
 }

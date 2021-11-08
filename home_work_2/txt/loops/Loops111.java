@@ -1,25 +1,34 @@
 package home_work_2.txt.loops;
 
-public class Loops111 {
-    public static void main(String[] args) {
-        long num = Long.parseLong(args[0]);
-        if (num <= 0) {
-            System.out.println("В аргумент нужно передать целое положительное число");
-            return;
+import home_work_2.txt.loops.api.IFactorial;
+
+public class Loops111 implements IFactorial {
+    public long validationAndParseNumber(String arg){
+        try {
+            return Long.parseLong(arg);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Передано дробное число или не число\n" + e);
         }
+    }
+
+    public String factorial(long num){
+        if (num <= 0) {
+            throw new IllegalArgumentException("Передано число меньше или равное нулю");
+        }
+
         long result = 1;
-        String display = "1";
+        StringBuilder builder = new StringBuilder();
+        builder.append("1");
 
         for (long i = 2; i <= num; i++){
             try {
                 result = Math.multiplyExact(result, i);
             } catch (ArithmeticException e) {
-                System.out.println("Результат вышел за пределы Long");
-                return;
+                throw new ArithmeticException("Результат вышел за пределы Long\n" + e);
             }
-            display += " * " + i;
+            builder.append(" * ").append(i);
         }
 
-        System.out.printf("%s = %d", display, result);
+         return builder.append(" = ").append(result).toString();
     }
 }
